@@ -23,6 +23,7 @@ const HomePage = () => {
           <div className="screen">
             <h2>カメラの映像</h2>
             <video
+              playsInline
               className="js-video-record"
               data-video-player=".js-video-player"
               data-record-start=".js-record-start"
@@ -83,7 +84,7 @@ const HomePage = () => {
 
           <div className="screen">
             <h2>録画した動画の再生</h2>
-            <video className="js-video-player"></video>
+            <video className="js-video-player" playsInline></video>
           </div>
         </div>
       </section>
