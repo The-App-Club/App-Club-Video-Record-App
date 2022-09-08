@@ -96,7 +96,9 @@ class VideoRecord {
     try {
       // 録画機能の生成
       this.mediaRecorder = new MediaRecorder(this.mediaStream, {
-        mimeType: 'video/webm; codecs=vp8',
+        // mimeType: 'video/webm; codecs=vp8',
+        // https://github.com/chrisguttandin/extendable-media-recorder/blob/master/src/factories/is-supported-promise.ts#L34
+        mimeType: 'audio/webm',
       });
       // availableイベントでメディア記録を保持
       this.mediaRecorder.ondataavailable = (event) =>
@@ -115,6 +117,7 @@ class VideoRecord {
 
       console.log('MediaRecorder start');
     } catch (error) {
+      // mimeType is not supported
       window.alert(error.message);
       // window.alert('error');
     }
