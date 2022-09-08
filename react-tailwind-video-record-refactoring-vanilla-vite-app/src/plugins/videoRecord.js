@@ -102,7 +102,7 @@ class VideoRecord {
       this.recordedChunks.push(event.data);
     // 録画開始
     this.mediaRecorder.start();
-
+    window.alert('this.superBuffer');
     console.log('this.superBuffer', this.superBuffer);
     if (this.superBuffer) {
       // メモリ解放
@@ -127,6 +127,7 @@ class VideoRecord {
     this.$download.disabled = false;
 
     console.log('MediaRecorder stop');
+    window.alert('MediaRecorder stop');
   }
 
   /**
@@ -178,35 +179,35 @@ export const createVideoRecord = () => {
     // 動画の再生プレイヤー
     const videoPlayer = target.getAttribute('data-video-player');
     if (!videoPlayer) {
-      console.error('data-video-player is required.');
+      window.alert('data-video-player is required.');
       continue;
     }
 
     // 録画の開始ボタン
     const recordStart = target.getAttribute('data-record-start');
     if (!recordStart) {
-      console.error('data-record-start is required.');
+      window.alert('data-record-start is required.');
       continue;
     }
 
     // 録画の停止ボタン
     const recordStop = target.getAttribute('data-record-stop');
     if (!recordStop) {
-      console.error('data-record-stop is required.');
+      window.alert('data-record-stop is required.');
       continue;
     }
 
     // 動画の再生ボタン
     const playStart = target.getAttribute('data-play-start');
     if (!playStart) {
-      console.error('data-play-start is required.');
+      window.alert('data-play-start is required.');
       continue;
     }
 
     // 動画をダウンロードするボタン
     const download = target.getAttribute('data-download');
     if (!download) {
-      console.error('data-download is required.');
+      window.alert('data-download is required.');
       continue;
     }
 
@@ -214,35 +215,35 @@ export const createVideoRecord = () => {
     // 動画の再生プレイヤー
     const $videoPlayer = document.querySelector(videoPlayer);
     if (!$videoPlayer) {
-      console.error('videoPlayer Selector does not exist.');
+      window.alert('videoPlayer Selector does not exist.');
       continue;
     }
 
     // 録画の開始ボタン
     const $recordStart = document.querySelector(recordStart);
     if (!$recordStart) {
-      console.error('recordStart Selector does not exist.');
+      window.alert('recordStart Selector does not exist.');
       continue;
     }
 
     // 録画の停止ボタン
     const $recordStop = document.querySelector(recordStop);
     if (!$recordStop) {
-      console.error('recordStop Selector does not exist.');
+      window.alert('recordStop Selector does not exist.');
       continue;
     }
 
     // 動画の再生ボタン
     const $playStart = document.querySelector(playStart);
     if (!$playStart) {
-      console.error('playStart Selector does not exist.');
+      window.alert('playStart Selector does not exist.');
       continue;
     }
 
     // 動画をダウンロードするボタン
     const $download = document.querySelector(download);
     if (!$download) {
-      console.error('download Selector does not exist.');
+      window.alert('download Selector does not exist.');
       continue;
     }
 
