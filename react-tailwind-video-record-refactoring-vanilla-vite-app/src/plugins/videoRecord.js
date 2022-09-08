@@ -115,7 +115,8 @@ class VideoRecord {
 
       console.log('MediaRecorder start');
     } catch (error) {
-      window.alert('error');
+      window.alert(error.message);
+      // window.alert('error');
     }
   }
 
