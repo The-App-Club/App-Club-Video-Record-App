@@ -93,26 +93,30 @@ class VideoRecord {
    * 録画を開始する
    */
   startRecording() {
-    // 録画機能の生成
-    this.mediaRecorder = new MediaRecorder(this.mediaStream, {
-      mimeType: 'video/webm; codecs=vp8',
-    });
-    // availableイベントでメディア記録を保持
-    this.mediaRecorder.ondataavailable = (event) =>
-      this.recordedChunks.push(event.data);
-    // 録画開始
-    this.mediaRecorder.start();
-    window.alert('this.superBuffer');
-    console.log('this.superBuffer', this.superBuffer);
-    if (this.superBuffer) {
-      // メモリ解放
-      URL.revokeObjectURL(this.superBuffer);
+    try {
+      // 録画機能の生成
+      this.mediaRecorder = new MediaRecorder(this.mediaStream, {
+        mimeType: 'video/webm; codecs=vp8',
+      });
+      // availableイベントでメディア記録を保持
+      this.mediaRecorder.ondataavailable = (event) =>
+        this.recordedChunks.push(event.data);
+      // 録画開始
+      this.mediaRecorder.start();
+      window.alert('this.superBuffer');
+      console.log('this.superBuffer', this.superBuffer);
+      if (this.superBuffer) {
+        // メモリ解放
+        URL.revokeObjectURL(this.superBuffer);
+      }
+
+      // ボタンの表示更新 (動画停止を許可)
+      this.$recordStop.disabled = false;
+
+      console.log('MediaRecorder start');
+    } catch (error) {
+      window.alert('error');
     }
-
-    // ボタンの表示更新 (動画停止を許可)
-    this.$recordStop.disabled = false;
-
-    console.log('MediaRecorder start');
   }
 
   /**
