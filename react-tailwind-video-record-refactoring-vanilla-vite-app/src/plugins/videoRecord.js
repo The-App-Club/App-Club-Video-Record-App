@@ -144,7 +144,7 @@ class VideoRecord {
    */
   startPlaying() {
     // webm形式でBlobで取得
-    this.superBuffer = new Blob(this.recordedChunks, {type: 'video/webm'});
+    this.superBuffer = new Blob(this.recordedChunks, {type: 'video/mp4'});
 
     // BlobをURLに変換して設定
     this.$videoPlayer.src = URL.createObjectURL(this.superBuffer);
@@ -160,13 +160,13 @@ class VideoRecord {
    * ダウンロードする
    */
   download() {
-    const blob = new Blob(this.recordedChunks, {type: 'video/webm'});
+    const blob = new Blob(this.recordedChunks, {type: 'video/mp4'});
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     document.body.appendChild(a);
     a.style = 'display: none';
     a.href = url;
-    a.download = 'video.webm';
+    a.download = 'video.mp4';
     a.click();
     window.URL.revokeObjectURL(url);
     document.body.removeChild(a);
