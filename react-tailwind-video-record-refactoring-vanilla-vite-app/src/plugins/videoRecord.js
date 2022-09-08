@@ -95,10 +95,11 @@ class VideoRecord {
   startRecording() {
     try {
       // 録画機能の生成
+      // https://github.com/muxinc/stream.new/issues/64#issuecomment-847352716
       this.mediaRecorder = new MediaRecorder(this.mediaStream, {
         // mimeType: 'video/webm; codecs=vp8',
         // https://github.com/chrisguttandin/extendable-media-recorder/blob/master/src/factories/is-supported-promise.ts#L34
-        mimeType: 'audio/webm',
+        mimeType: 'video/mp4; codecs=avc1',
       });
       // availableイベントでメディア記録を保持
       this.mediaRecorder.ondataavailable = (event) =>
